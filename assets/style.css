@@ -39,14 +39,17 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--berg);outline-offse
   box-shadow:inset 0 .07em .05em -.04em rgba(0,0,0,.35),inset 0 -.07em .05em -.04em rgba(0,0,0,.35)}
 .rolle svg{width:.56em;height:.56em;overflow:visible}
 
-/* Kopf */
-.kopf{background:var(--band);color:var(--band-text)}
-.kopf nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;flex-wrap:wrap}
-.kopf nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
-.kopf nav ul a{text-decoration:none;font-weight:500;color:var(--band-leise)}
-.kopf nav ul a:hover{color:var(--band-text)}
+/* Kopf: Leiste läuft beim Scrollen mit */
+.leiste{position:sticky;top:0;z-index:10;background:var(--band);color:var(--band-text);border-bottom:1px solid #2c4a63}
+.leiste nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+.leiste nav ul{display:flex;gap:22px;list-style:none;margin:0 0 0 auto;padding:0;flex-wrap:wrap}
+.leiste nav ul a{text-decoration:none;font-weight:500;color:var(--band-leise)}
+.leiste nav ul a:hover{color:var(--band-text)}
 
-.hero{padding:64px 0 80px}
+.kopf{background:var(--band);color:var(--band-text)}
+.knopf.klein{min-height:44px;padding:0 16px;font-size:16px}
+section[id]{scroll-margin-top:84px}
+.hero{padding:56px 0 80px}
 .eyebrow{font:600 14px/1.2 var(--f-zahl);letter-spacing:.12em;text-transform:uppercase;color:var(--band-leise)}
 .hero h1{font:800 clamp(44px,8vw,88px)/1 var(--f-display);letter-spacing:-.035em;margin:16px 0 0}
 .hero h1 .r{color:#ff8f78}
@@ -77,6 +80,10 @@ h3{font:700 21px/1.25 var(--f-display);margin:0}
 .raster{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:36px}
 .karte{background:var(--flaeche);border:1.5px solid var(--linie);border-radius:12px;padding:24px;min-width:0}
 .karte p{margin:8px 0 0;color:var(--text-2);font-size:17px}
+.kombi-titel{margin-top:36px;font-size:19px;color:var(--text-2)}
+.kombi{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:center;margin-top:16px}
+.kombi .karte{height:100%}
+.plus{font:800 34px/1 var(--f-display);color:var(--rolle-text);text-align:center}
 .schritte{list-style:none;counter-reset:s;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 .schritte li{counter-increment:s;min-width:0}
 .schritte li::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:44px;height:50px;border-radius:7px;background:var(--rolle);color:#fff;font:600 28px/1 var(--f-zahl);margin-bottom:14px;
@@ -109,7 +116,8 @@ footer ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
   .hero-grid{grid-template-columns:1fr;gap:36px}
   section{padding:52px 0}
   .cta{padding:28px 22px}
-  .kopf nav ul{display:none}
+  .leiste nav ul{display:none}
+  .kombi{grid-template-columns:1fr;gap:6px}
   .schild td{padding:10px 14px}
   body{font-size:17px}
 }
